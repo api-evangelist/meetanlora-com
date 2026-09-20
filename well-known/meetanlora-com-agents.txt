@@ -1,0 +1,43 @@
+# Anlora — Agent Discovery Index
+# https://meetanlora.com — Autonomous AI chatter for OnlyFans agencies (not affiliated with or endorsed by OnlyFans)
+#
+# This file is a pointer index for AI agents and automation tooling.
+# It declares which structured discovery surfaces Anlora publishes.
+# Mastercard-endorsed pattern. See https://nohacks.co/blog/ai-user-agents-landscape-2026
+# for the discovery convention. Format: plain text, one declaration per line.
+
+llms-txt: https://meetanlora.com/llms.txt
+llms-full-txt: https://meetanlora.com/llms-full.txt
+sitemap: https://meetanlora.com/sitemap.xml
+robots: https://meetanlora.com/robots.txt
+
+# Agent discovery (Google A2A v1.0, Linux Foundation governance)
+agent-card: https://meetanlora.com/.well-known/agent-card.json
+
+# Model Context Protocol (Anthropic + GitHub + Microsoft-backed)
+mcp-manifest: https://meetanlora.com/.well-known/mcp.json
+mcp-registry: https://registry.modelcontextprotocol.io/v0/servers?search=anlora
+
+# Anthropic Agent Skills (Stripe + Resend pattern)
+skills-index: https://meetanlora.com/.well-known/skills/index.json
+
+# Agentic Reasoning Protocol (ARP) — Ed25519-signed claim ledger
+ai-manifest: https://meetanlora.com/.well-known/ai-manifest.json
+claims: https://meetanlora.com/.well-known/claims.json
+intent-map: https://meetanlora.com/.well-known/llm-intent-map.json
+
+# W3C DID Web identity (cryptographically verifiable brand identity)
+did: https://meetanlora.com/.well-known/did.json
+did-method: did:web:meetanlora.com
+
+# IETF Web Bot Auth (JWKS for cryptographic agent authentication)
+http-message-signatures: https://meetanlora.com/.well-known/http-message-signatures-directory
+
+# Security policy
+security: https://meetanlora.com/.well-known/security.txt
+
+# Contact for agent integration questions
+contact: hello@meetanlora.com
+
+# Last updated
+last-updated: 2026-05-14

@@ -1,0 +1,52 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/ed25519-2020/v1"
+  ],
+  "id": "did:web:meetanlora.com",
+  "alsoKnownAs": [
+    "https://meetanlora.com",
+    "https://x.com/meetanlora"
+  ],
+  "verificationMethod": [
+    {
+      "id": "did:web:meetanlora.com#arp-2026-05-13",
+      "type": "Ed25519VerificationKey2020",
+      "controller": "did:web:meetanlora.com",
+      "publicKeyMultibase": "z6MkwKprVZu9cjaybGdGNztNxkR3N2aegt2TCD1Ye2mS6ym5"
+    }
+  ],
+  "authentication": [
+    "did:web:meetanlora.com#arp-2026-05-13"
+  ],
+  "assertionMethod": [
+    "did:web:meetanlora.com#arp-2026-05-13"
+  ],
+  "service": [
+    {
+      "id": "did:web:meetanlora.com#website",
+      "type": "LinkedDomains",
+      "serviceEndpoint": "https://meetanlora.com"
+    },
+    {
+      "id": "did:web:meetanlora.com#agent-card",
+      "type": "AgentCard",
+      "serviceEndpoint": "https://meetanlora.com/.well-known/agent-card.json"
+    },
+    {
+      "id": "did:web:meetanlora.com#mcp",
+      "type": "MCPServer",
+      "serviceEndpoint": "https://meetanlora.com/.well-known/mcp.json"
+    },
+    {
+      "id": "did:web:meetanlora.com#skills",
+      "type": "AgentSkillsIndex",
+      "serviceEndpoint": "https://meetanlora.com/.well-known/skills/index.json"
+    },
+    {
+      "id": "did:web:meetanlora.com#ai-manifest",
+      "type": "AgenticReasoningProtocol",
+      "serviceEndpoint": "https://meetanlora.com/.well-known/ai-manifest.json"
+    }
+  ]
+}

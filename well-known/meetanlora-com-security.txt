@@ -1,0 +1,8 @@
+Contact: mailto:security@meetanlora.com
+Contact: mailto:hello@meetanlora.com
+Expires: 2027-05-13T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://meetanlora.com/.well-known/security.txt
+Signature: https://meetanlora.com/.well-known/security.txt.sig
+Policy: https://meetanlora.com/privacy
+Hiring: https://meetanlora.com/docs/about

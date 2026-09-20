@@ -1,0 +1,47 @@
+generated: '2026-09-19'
+method: probed
+format: vendor-json
+source: live anonymous requests to meetanlora.com on 2026-09-19
+docs: null
+summary: >-
+  Anlora publishes no error reference and no OpenAPI, so nothing could be derived from a contract. What follows is
+  the error envelope OBSERVED on the provider's host: the private application API under /api/ returns a JSON object
+  {"error":{"code":<UPPER_SNAKE>,"message":<text>}}, and the Laravel router returns {"message":<text>} for method
+  errors on non-API routes. The public agent surfaces (agent card, MCP stdio server, skills) are documents and a local
+  process, so they have no HTTP error catalog; the MCP server's tool errors were not observed because the server was
+  not executed.
+envelope:
+  api:
+    shape: '{"error": {"code": "<CODE>", "message": "<text>"}}'
+    content_type: application/json
+    code_field: error.code
+    message_field: error.message
+    request_id: X-Trace-Id response header (observed on HTML responses; e.g. dd00074f-26ec-4450-9cbe-935cff1c6211)
+  router:
+    shape: '{"message": "<text>"}'
+    content_type: application/json
+problems:
+- status: 401
+  code: UNAUTHENTICATED
+  title: Unauthenticated
+  observed_on: GET https://meetanlora.com/api/docs
+  body: '{"error":{"code":"UNAUTHENTICATED","message":"Unauthenticated."}}'
+  remediation: Sign in to the customer dashboard; the /api/ surface is session-gated and not offered to third parties.
+- status: 404
+  code: NOT_FOUND
+  title: Route not found
+  observed_on: GET https://meetanlora.com/api/v1 and GET https://meetanlora.com/api/openapi.json
+  body: '{"error":{"code":"NOT_FOUND","message":"The route api/v1 could not be found."}}'
+- status: 405
+  code: null
+  title: Method not allowed
+  observed_on: POST https://meetanlora.com/ (JSON-RPC message/send and tools/list)
+  body: '{"message": "The POST method is not supported for route /. Supported methods: GET, HEAD."}'
+  remediation: The site root accepts GET/HEAD only; there is no A2A or MCP HTTP endpoint on this host.
+- status: 404
+  code: null
+  title: Page not found (HTML)
+  observed_on: GET https://meetanlora.com/openapi.json, /a2a, /mcp, /graphql, /changelog, /status, /security and every unserved /.well-known/* path
+  body: HTML "Not Found - Anlora" page (6,952-7,890 bytes) - a real 404 status, not a soft-200.
+rfc9457: false
+retry_after: not observed (no 429 was triggered; no rate limit is documented)

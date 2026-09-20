@@ -1,0 +1,106 @@
+generated: '2026-09-19'
+method: searched
+status: published
+source: https://meetanlora.com/.well-known/mcp.json
+docs: https://github.com/Stanglovicc/anlora-mcp
+summary: >-
+  Anlora publishes ONE MCP server, "anlora-agency-benchmarks", as a LOCAL stdio package: the manifest at
+  /.well-known/mcp.json (HTTP 200, application/json, lastModified 2026-05-15) declares server.command "npx" with
+  args ["-y", "github:Stanglovicc/anlora-mcp"], and the GitHub repository Stanglovicc/anlora-mcp (MIT, pushed
+  2026-05-14, src/index.js, package.json name @anlora/mcp-agency-benchmarks 1.0.0) is the only distribution. No
+  hosted endpoint exists on any host - the apex answers 405 to POST, /mcp is the site's HTML 404, and
+  mcp.meetanlora.com does not resolve - so an agent cannot reach this server over the network; a human must install
+  and run it first. The server is read-only and anonymous: four tools returning publicly sourced OnlyFans agency
+  operating-economics benchmarks. The four tools are the same four skills the A2A agent card lists.
+deployment:
+  mode: local-stdio
+  endpoint: null
+  install: npx -y github:Stanglovicc/anlora-mcp
+  package: https://github.com/Stanglovicc/anlora-mcp
+  auth: none
+  verified: searched
+  note: >-
+    install is the provider's own server block in /.well-known/mcp.json, verbatim. The repository README instead
+    documents `npx -y @anlora/mcp-agency-benchmarks`, but that npm package is NOT published
+    (https://registry.npmjs.org/@anlora%2Fmcp-agency-benchmarks returned 404 on 2026-09-19), so the README recipe
+    does not work as written; the github: specifier in the manifest is the one that resolves. The MCP registry
+    search the provider's agents.txt links to (https://registry.modelcontextprotocol.io/v0/servers?search=anlora)
+    returned {"servers":[],"metadata":{"count":0}}. The package was not executed in this pass; verified means the
+    manifest was fetched and the repository and its package.json confirmed on GitHub.
+servers:
+- id: anlora-agency-benchmarks
+  name: Anlora - OnlyFans Agency Benchmarks
+  version: 1.0.0
+  transport: stdio
+  endpoint: null
+  install: npx -y github:Stanglovicc/anlora-mcp
+  repository: https://github.com/Stanglovicc/anlora-mcp
+  license: MIT
+  auth: none
+  status: published-local
+  homepage: https://meetanlora.com
+  documentation: https://meetanlora.com/llms-full.txt
+  manifest: well-known/meetanlora-com-mcp.json
+  categories: [business-saas, creator-economy, benchmarks, agency-ops]
+  tools:
+  - name: get_agency_cost_benchmark
+    description: Get a sourced monthly cost breakdown for running an OnlyFans agency at a given scale. Returns chatter headcount, payroll, management overhead, revenue leakage estimate, and total monthly cost across three operating models (chatter-only, assisted-AI + reduced chatters, autonomous AI).
+    read_only: true
+    inputSchema:
+      type: object
+      properties:
+        creator_count: {type: integer, minimum: 1, maximum: 50, description: Number of creators in the agency roster.}
+        avg_revenue_per_creator_usd: {type: number, minimum: 1000, maximum: 200000, description: Average monthly OnlyFans revenue per creator in USD.}
+        operating_model: {type: string, enum: [chatter_only, assisted_ai, autonomous_ai, all], description: Which operating model to compute. 'all' returns side-by-side comparison.}
+      required: [creator_count, avg_revenue_per_creator_usd]
+  - name: compare_of_tooling
+    description: Get a sourced comparison of OnlyFans agency tooling. Each entry includes operating model, public pricing, source URL, and category positioning. Coverage - Infloww, Supercreator, Substy AI, FlirtFlow, Creator Hero, OnlyMonster, Fans-CRM, Anlora.
+    read_only: true
+    inputSchema:
+      type: object
+      properties:
+        tools: {type: array, items: {type: string}, description: Tool names to compare. Empty array returns all 8 tools.}
+        format: {type: string, enum: [table, json], default: json}
+  - name: get_autonomous_threshold
+    description: Get the operator-economics threshold at which autonomous AI beats assisted-AI plus a chatter team on total cost of ownership. Returns the creator-count x revenue-per-creator flip point under configurable assumptions.
+    read_only: true
+    inputSchema:
+      type: object
+      properties:
+        chatter_hourly_wage_usd: {type: number, default: 4.5, description: 'Offshore chatter wage in USD/hour. Default: $4.50/hr (Vice/Rappler sourced).'}
+        leakage_rate_pct: {type: number, default: 0.16, description: 'Revenue leakage rate as decimal. Default: 0.16 (16% - average across creator-count tiers).'}
+  - name: list_industry_sources
+    description: List the 7+ external industry sources Anlora's benchmarks are derived from, with publication date and topic coverage.
+    read_only: true
+    inputSchema: null
+    note: The manifest declares no inputSchema for this tool (no parameters).
+  tools_note: >-
+    Tool names, descriptions and input schemas are copied from the provider's manifest, which is the MCP
+    equivalent of the contract; tools/list could not be run because the server is stdio-only. The README's
+    parameter names for get_autonomous_threshold (chatter_wage_usd_per_hour) differ from the manifest's
+    (chatter_hourly_wage_usd); the manifest is recorded here.
+client_configs:
+  claude_desktop: '{"mcpServers":{"anlora-agency-benchmarks":{"command":"npx","args":["-y","github:Stanglovicc/anlora-mcp"]}}}'
+  readme_variant: '{"mcpServers":{"anlora-agency-benchmarks":{"command":"npx","args":["-y","@anlora/mcp-agency-benchmarks"]}}} - documented in the README but the npm package is unpublished (404)'
+discovery:
+  manifest: https://meetanlora.com/.well-known/mcp.json
+  link_header: 'Link: </.well-known/mcp.json>; rel="service-meta"; type="application/json" on every meetanlora.com HTML response'
+  did_service: did:web:meetanlora.com#mcp (type MCPServer) in https://meetanlora.com/.well-known/did.json
+  agents_txt: mcp-manifest line in https://meetanlora.com/.well-known/agents.txt
+  note: /.well-known/mcp.json is a provider convention, not a ratified MCP discovery document; the MCP specification defines no well-known manifest.
+x-evidence:
+  fetched: '2026-09-19'
+  manifest_url: https://meetanlora.com/.well-known/mcp.json
+  manifest_http_status: 200
+  manifest_content_type: application/json
+  repository_url: https://api.github.com/repos/Stanglovicc/anlora-mcp
+  repository_http_status: 200
+  repository_pushed_at: '2026-05-14T23:28:55Z'
+  npm_url: https://registry.npmjs.org/@anlora%2Fmcp-agency-benchmarks
+  npm_http_status: 404
+  mcp_registry_url: https://registry.modelcontextprotocol.io/v0/servers?search=anlora
+  mcp_registry_count: 0
+  endpoint_probes:
+  - {url: 'https://meetanlora.com', method: 'POST tools/list', status: 405}
+  - {url: 'https://meetanlora.com/mcp', method: GET, status: 404}
+  - {url: 'https://mcp.meetanlora.com/', method: GET, status: 'no DNS resolution'}

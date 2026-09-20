@@ -1,0 +1,73 @@
+generated: '2026-09-19'
+method: searched
+source: https://meetanlora.com/pricing
+docs: https://meetanlora.com/docs/partnership
+plan_count: 2
+currency: USD
+model: >-
+  Revenue share only. "A flat 20% of what OnlyFans pays out on the revenue Anlora generates" - no monthly fee, no
+  setup fee, no per-creator or per-message charge, no minimum term, no early-termination fee; billed monthly in
+  arrears. The Privacy Policy states invoices are settled in cryptocurrency ("we do not take card payments"). The
+  agent surfaces (agent card, MCP server, skills) are free and unmetered - there is no paid API tier because there is
+  no API product.
+plans:
+- id: standard
+  name: Standard rate
+  price: 20% of OnlyFans payout on AI-generated revenue
+  price_numeric: null
+  currency: USD
+  period: monthly, in arrears
+  description: >-
+    "20% of what OnlyFans pays out on AI-generated revenue." Worked example on the page: "a $100 unlock the AI sold
+    pays your creator $80 and costs you $16." "If Anlora does not generate revenue, you pay nothing."
+  included:
+  - Autonomous AI chatting (with optional human oversight)
+  - Long-term fan memory that persists across conversations
+  - Voice DNA per creator
+  - Multi-horizon planning (message to 6-month arc)
+  - Naturalness & Quality
+  - Real-time analytics dashboard
+  - Hosting, maintenance, model upgrades
+  - Direct operator support
+  - 7-day free trial, no card
+  excluded:
+  - OnlyFans's own platform fees
+  - Tax and VAT obligations
+  - Optional human oversight or QA staff
+  - Custom integrations or white-label
+  quota: null
+  overage: null
+  limits: []
+  trial:
+    length: 7 days
+    card_required: false
+    auto_conversion: false
+    note: '"No card at sign up, no auto-conversion ... After day 7 you either continue at the flat 20% or stop; continuing requires confirming in writing." Runs on the agency''s existing management platform with no technical integration; setup takes one day.'
+  unit: percentage of AI-generated revenue after the OnlyFans platform cut
+- id: enterprise
+  name: Enterprise (Custom)
+  price: Volume-based rate (negotiated)
+  price_numeric: null
+  currency: USD
+  period: monthly, in arrears
+  description: >-
+    "Volume-based pricing for agencies running 10+ creators." Contact sales. llms.txt adds: "Custom rates are
+    negotiated for 15+ creator agencies, typically settling in the 15-18% effective range depending on volume
+    commitments." (The pricing page says 10+, llms.txt and the skills say 15+; both are the provider's own words.)
+  included:
+  - Volume-based rate (negotiated)
+  - Dedicated agency-ops contact
+  - Direct line to engineering
+  - Priority onboarding
+  quota: null
+  overage: null
+  limits: []
+  unit: percentage of AI-generated revenue, negotiated
+affiliate:
+  url: https://meetanlora.com/affiliate
+  terms: https://meetanlora.com/affiliate-terms
+  note: A referral programme exists for agencies referred by third parties; commission terms are on the affiliate-terms page and were not extracted here.
+note: >-
+  All values copied from https://meetanlora.com/pricing (HTTP 200, 2026-09-19). The page also carries a cost
+  calculator and competitor pricing comparisons "as publicly listed on each vendor's pricing page as of May 2026";
+  those competitor figures are not recorded here.

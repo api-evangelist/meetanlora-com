@@ -1,0 +1,48 @@
+generated: '2026-09-19'
+method: searched
+source: registry searches + the provider's /.well-known/mcp.json and /.well-known/skills/index.json, 2026-09-19
+package_count: 2
+packages:
+- name: '@anlora/mcp-agency-benchmarks'
+  kind: mcp-server
+  language: javascript
+  registry: github
+  url: https://github.com/Stanglovicc/anlora-mcp
+  install: npx -y github:Stanglovicc/anlora-mcp
+  official: true
+  license: MIT
+  version: 1.0.0
+  published: '2026-05-14'
+  version_source: package.json in the repository (raw.githubusercontent.com, HTTP 200); published is the repository's pushed_at from api.github.com (2026-05-14T23:28:55Z) - GitHub-distributed, no release tags
+  npm:
+    url: https://registry.npmjs.org/@anlora%2Fmcp-agency-benchmarks
+    status: 404
+    note: >-
+      The package.json names an npm scope and the README tells users to `npx -y @anlora/mcp-agency-benchmarks`, but
+      nothing is published under that name; only the github: specifier in the provider's manifest resolves.
+  note: >-
+    A local stdio MCP server, not a client SDK - it exposes four read-only benchmark tools and is the only code the
+    provider ships. Declared first-party by the provider's own /.well-known/mcp.json (repository.url) and package.json
+    (author Anlora <hello@meetanlora.com>, homepage https://meetanlora.com).
+- name: anlora-skills
+  kind: agent-skills
+  language: markdown
+  registry: github
+  url: https://github.com/Stanglovicc/anlora-skills
+  official: true
+  license: CC-BY-4.0
+  version: 1.0.0
+  published: '2026-05-14'
+  version_source: version field in each SKILL.md frontmatter and in /.well-known/skills/index.json; published is the repository's pushed_at (2026-05-14T23:29:22Z)
+  note: Three Anthropic-format SKILL.md files referenced by URL from the provider's skills index; saved verbatim under skills/.
+searched:
+- {registry: npm, query: 'https://registry.npmjs.org/-/v1/search?text=anlora', result: 0 packages}
+- {registry: npm, query: 'https://registry.npmjs.org/@anlora%2Fmcp-agency-benchmarks', status: 404}
+- {registry: pypi, query: 'https://pypi.org/pypi/anlora/json', status: 404}
+- {registry: mcp-registry, query: 'https://registry.modelcontextprotocol.io/v0/servers?search=anlora', result: 0 servers}
+- {registry: github-user, query: 'https://api.github.com/users/Stanglovicc', result: 'personal account (12 public repos) hosting both provider repositories; named as the code home by the provider''s own manifests; not an organization'}
+note: >-
+  No client SDK, CLI or API library exists in any registry - Anlora sells a managed service with "no technical
+  integration" and publishes no REST contract, so there is nothing to wrap. The two entries are the provider's agent
+  surfaces (an MCP server and a skills bundle). No SDKs pointer is emitted: an MCP server package is not a client
+  library and sdk_count would be a false credit.

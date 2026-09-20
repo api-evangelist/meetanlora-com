@@ -1,0 +1,22 @@
+{
+  "keys": [
+    {
+      "kty": "OKP",
+      "crv": "Ed25519",
+      "x": "-q8gzejLsEJ5q2zNxTqXC0g9u0gG16SfrdRINfhDHHQ",
+      "kid": "arp-2026-05-13",
+      "alg": "EdDSA",
+      "use": "sig",
+      "key_ops": ["verify"]
+    }
+  ],
+  "metadata": {
+    "publisher": "Anlora",
+    "publisherUrl": "https://meetanlora.com",
+    "did": "did:web:meetanlora.com",
+    "didDocument": "https://meetanlora.com/.well-known/did.json",
+    "lastModified": "2026-05-14",
+    "spec": "https://datatracker.ietf.org/doc/draft-ietf-httpbis-web-bot-auth/",
+    "note": "JWKS for IETF Web Bot Auth. Same Ed25519 keypair as did:web:meetanlora.com#arp-2026-05-13 and the Agentic Reasoning Protocol manifest. Verifies HTTP message signatures Anlora emits on signed outbound requests."
+  }
+}

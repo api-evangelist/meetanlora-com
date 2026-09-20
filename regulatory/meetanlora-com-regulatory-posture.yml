@@ -1,0 +1,56 @@
+generated: '2026-09-19'
+method: searched
+probe: true
+signals:
+  subprocessors:
+    url: https://meetanlora.com/privacy
+    section: '6. Data Sharing & Sub-Processors'
+    named:
+    - OnlyFans (onlyfans.com) - session tokens for API requests on the customer's behalf
+    - Hetzner Online GmbH (Nuremberg, Germany, EU) - hosting and infrastructure
+    - Cloudflare, Inc. (EU/US) - CDN, DDoS protection, WAF; EU-US DPF and/or SCCs
+    - Sentry (US) - error monitoring, technical error data only; SCCs
+    - Google Ireland Ltd / Google LLC - Google Analytics, consent-gated; DPF and/or SCCs
+    - Microsoft Ireland Operations Ltd / Microsoft Corporation - Microsoft Clarity on marketing pages, consent-gated; DPF and/or SCCs
+    - Public blockchain explorers (TronGrid, mempool.space, Etherscan, Solana RPC) - invoice payment confirmation
+    change_notice: '"We maintain an up-to-date list of sub-processors and will notify you of changes with 14 days'' notice."'
+    dated: 'Privacy Policy "Last updated: September 15, 2026"'
+    note: A named table with transfer mechanisms and a change-notice commitment - substance, not a mention. No standalone /legal/subprocessors page (404); the list lives inside the privacy policy.
+  data_subject_request:
+    url: https://meetanlora.com/privacy
+    section: '8. Your Rights Under GDPR'
+    contact: privacy@meetanlora.com
+    stated_response: '"We will respond within one month as required by GDPR Art. 12(3)."'
+    rights: [access, rectification, erasure, restriction, portability, objection, withdraw consent]
+    api: null
+    note: Email channel only; no self-service request form or endpoint (/privacy/requests 404).
+  data_residency:
+    url: https://meetanlora.com/privacy
+    regions: [eu]
+    statement: '"Hetzner Online GmbH (Nuremberg, Germany, EU): Server hosting and infrastructure"; llms.txt: "EU-hosted ... with EU data residency"; ai-manifest.json compliance.dataResidency "EU".'
+    note: A single-region statement with a named host; no region selection is offered to customers.
+  exit_assistance:
+    url: https://meetanlora.com/terms
+    statement: '"You may request an export of your data before termination"; Privacy Policy Right to Data Portability: "Request your data in a structured, machine-readable format"; llms-full.txt: "Full data export and deletion are available on request."'
+    stated_period: 'Termination on 30 days'' written notice; "we aim to delete other account data within 30 days"'
+    note: Export on request by email; no self-service export tool or documented format is published.
+probed:
+- {url: 'https://meetanlora.com/accessibility', status: 404}
+- {url: 'https://meetanlora.com/legal/subprocessors', status: 404}
+- {url: 'https://meetanlora.com/legal/dpa', status: 404, note: 'DPA is "available on request" via privacy@meetanlora.com - not published, so not recorded'}
+- {url: 'https://meetanlora.com/security', status: 404}
+- {url: 'https://meetanlora.com/status', status: 404, note: 'the status page is on status.meetanlora.com'}
+- {url: 'https://meetanlora.com/.well-known/security.txt', status: 200, note: 'Policy field points at /privacy; no SBOM, no separate disclosure policy'}
+- {url: 'https://meetanlora.com/privacy', status: 200, note: 'source of the subprocessors, data_subject_request and data_residency signals above; no Global Privacy Control statement, no breach-notification SLA to customers, no age-assurance mechanism described'}
+- {url: 'https://meetanlora.com/terms', status: 200, note: 'source of exit_assistance; 14-day notice of material changes; governed by Czech law and EU regulations; no incident-notification SLA'}
+- {url: 'https://meetanlora.com/cookies', status: 200, note: 'cookie policy - consent-gated analytics, 180-day consent cookie; carries no GPC statement'}
+- {url: 'https://meetanlora.com/.well-known/ai-manifest.json', status: 200, note: 'states "Anlora does NOT fine-tune, train, adapt, or customize any AI model on customer data" and an EU data-residency claim; it is a self-described draft-protocol manifest, not an AI-transparency or training-data-summary page, so neither signal is recorded from it'}
+- {url: 'https://meetanlora.com/pricing', status: 200, note: '"Agencies are responsible for disclosing AI-assisted chat to fans where OnlyFans terms or law require" - the AI-disclosure obligation is allocated to the customer; the provider publishes no ai_transparency page of its own'}
+- {url: 'https://meetanlora.com/docs/about', status: 200, note: 'team and timeline page; no support-lifetime statement'}
+note: >-
+  HARVEST ONLY. Four signals carry substance on a public page: a named sub-processor table with 14-day change
+  notice, a GDPR data-subject-request channel with a stated one-month response, an EU-only data-residency statement
+  naming the host, and a data-export-on-termination commitment. Nothing is recorded for sbom, support_lifetime,
+  accessibility_conformance, training_data_summary, ai_transparency, global_privacy_control, incident_notification,
+  age_assurance, notice_and_action or transparency_report - none is published. Which regimes reach the provider is
+  decided by the regime map, not here.

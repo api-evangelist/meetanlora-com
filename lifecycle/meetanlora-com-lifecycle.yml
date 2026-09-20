@@ -1,0 +1,51 @@
+generated: '2026-09-19'
+method: searched
+source: https://status.meetanlora.com/
+docs:
+- https://status.meetanlora.com/
+- https://meetanlora.com/terms
+- https://meetanlora.com/llms.txt
+- https://meetanlora.com/docs/about
+versioning:
+  scheme: none published for any API surface
+  current_version: 1.0.0 (agent card version, MCP manifest version, package.json, skills index version - all 1.0.0)
+  policy_published: false
+  note: >-
+    Anlora publishes no REST contract, so there is no path- or header-versioned API. The agent surfaces (agent card,
+    MCP manifest, skills index, ai-manifest) all carry version 1.0.0 with lastModified dates in May 2026, and the
+    ai-manifest says "This manifest is updated on every product release. Always fetch fresh - do not cache beyond 24
+    hours." The llms.txt states "Anlora ships product updates weekly" and that last-updated dates appear in each
+    page's structured data. No dated changelog page exists (/changelog 404).
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  deprecated_operations: []
+  documented_retirements: []
+  terms_change_notice: >-
+    The Terms of Service state "We will notify registered users of material changes at least 14 days before they
+    take effect" and that either party may terminate the service agreement with 30 days' written notice; the Privacy
+    Policy commits to notifying sub-processor changes with 14 days' notice. These are contractual notice periods,
+    not an API deprecation policy. No Deprecation pointer is emitted.
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No SLA is published. The Terms disclaim "any performance, result, outcome, or level of service of any kind,
+    whether as to ... response time, uptime, availability", and the partnership page describes full deployment as
+    "always-on operation (no uptime guarantee)". The llms-full.txt marketing copy cites "99.98% monitored uptime with
+    automatic failover", which is an observation, not a commitment.
+status_page:
+  url: https://status.meetanlora.com/
+  http_status: 200
+  provider: Better Stack
+  observed: >-
+    "All services are online - Last updated on Sep 19, 2026 at 10:12pm UTC". One monitored component, "Console",
+    reported at 99.829% uptime with dated downtime entries (Jun 24 2026 3h23m, Jun 26 2026 12m, Aug 14 2026 3m) and
+    Maintenance and Previous incidents sections. Linked from the footer of every meetanlora.com page ("Status" /
+    "All systems online").
+  machine_readable: false
+  note: >-
+    /api/v2/status.json, /summary.json and /api/v2/summary.json on the status host all return the 849 KB HTML app
+    shell (HTTP 200), so there is no Statuspage-style JSON feed to poll.

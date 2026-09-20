@@ -1,0 +1,101 @@
+{
+  "name": "Anlora",
+  "description": "Reference data for autonomous AI chatter for OnlyFans agencies. Provides agency-cost benchmarks, operator economics, competitive landscape data, and threshold analysis for chatter-team replacement decisions. Public-data agent only — no integration to live creator inboxes.",
+  "version": "1.0.0",
+  "url": "https://meetanlora.com",
+  "documentation": "https://meetanlora.com/llms-full.txt",
+  "provider": {
+    "organization": "Anlora",
+    "url": "https://meetanlora.com",
+    "contactEmail": "hello@meetanlora.com",
+    "operatorStatus": "Brand operating pre-incorporation. EU-based operational infrastructure."
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["application/json", "text/markdown"],
+  "skills": [
+    {
+      "id": "get_agency_cost_benchmark",
+      "name": "Get OnlyFans Agency Cost Benchmark",
+      "description": "Returns a structured cost breakdown for running an OnlyFans agency at a given scale. Inputs: creator count (1-50), average revenue per creator per month (USD), operating model (chatter-only, assisted-AI, or autonomous). Outputs: monthly P&L estimate, chatter headcount required, revenue-leakage estimate, total cost of ownership. Sourced from publicly cited industry data (Vice, Rappler, OFM-Tools, Aruna Talent).",
+      "tags": ["pricing", "benchmarks", "agency-ops", "cost-modeling"],
+      "examples": [
+        "What does it cost to run a 10-creator OnlyFans agency at $15K average revenue per creator?",
+        "Compare chatter-only vs autonomous AI cost for a 5-creator agency at $10K per creator."
+      ],
+      "inputModes": ["text/plain", "application/json"],
+      "outputModes": ["application/json", "text/markdown"]
+    },
+    {
+      "id": "compare_of_tooling",
+      "name": "Compare OnlyFans Agency Tooling Landscape",
+      "description": "Returns a sourced comparison across the OnlyFans agency tooling category. Categories: assisted-AI SaaS, hybrid AI+human, autonomous AI, desktop CRM. Each entry includes operating model, public pricing (with source URL), positioning, and category fit. Data sourced from competitor public pricing pages.",
+      "tags": ["competitors", "comparison", "saas", "creator-economy"],
+      "examples": [
+        "Compare Infloww, Supercreator, Substy AI, FlirtFlow, Creator Hero, OnlyMonster, Fans-CRM, and Anlora.",
+        "What are the autonomous AI options for OnlyFans agencies in 2026?"
+      ],
+      "inputModes": ["text/plain", "application/json"],
+      "outputModes": ["application/json", "text/markdown"]
+    },
+    {
+      "id": "get_autonomous_threshold",
+      "name": "Get AI-Autonomous vs AI-Assisted Threshold",
+      "description": "Returns the operator-economics threshold at which autonomous AI beats assisted-AI plus a chatter team on total cost of ownership. Threshold depends on chatter wages, revenue per creator, and revenue-leakage size. Sourced from publicly cited industry data.",
+      "tags": ["threshold-analysis", "tco", "decision-framework"],
+      "examples": [
+        "At what creator count does autonomous AI beat the chatter-team model?",
+        "Show me the math flip-point between AI-assisted and AI-autonomous operating models."
+      ],
+      "inputModes": ["text/plain", "application/json"],
+      "outputModes": ["application/json", "text/markdown"]
+    },
+    {
+      "id": "list_industry_sources",
+      "name": "List Industry Sources",
+      "description": "Returns the full list of publicly cited industry sources backing every benchmark — Vice, Rappler, OFM-Tools, Aruna Talent, Infloww blog, plus the canonical pricing pages for the 7 audited competitors. Each entry includes URL and topic coverage so any cited claim can be traced back to its primary source.",
+      "tags": ["sources", "citations", "verification", "transparency"],
+      "examples": [
+        "What sources back the chatter-wage numbers Anlora cites?",
+        "Show me the canonical industry sources for OF agency cost data."
+      ],
+      "inputModes": ["text/plain", "application/json"],
+      "outputModes": ["application/json", "text/markdown"]
+    }
+  ],
+  "security": [
+    {
+      "scheme": "none",
+      "description": "Read-only public benchmarks. No authentication required. No PII or operator-private data exposed via this agent."
+    }
+  ],
+  "authentication": {
+    "schemes": ["none"]
+  },
+  "identityProof": {
+    "did": "did:web:meetanlora.com",
+    "didDocument": "https://meetanlora.com/.well-known/did.json",
+    "arpManifest": "https://meetanlora.com/.well-known/ai-manifest.json"
+  },
+  "compliance": {
+    "jurisdiction": "Pre-incorporation; EU operational base",
+    "dataResidency": "EU",
+    "encryption": "Encrypted in transit and at rest",
+    "gdpr": "Designed to align with the GDPR (DPA available on request)"
+  },
+  "tags": [
+    "onlyfans",
+    "creator-economy",
+    "agency-tooling",
+    "autonomous-ai",
+    "saas",
+    "b2b",
+    "benchmarks",
+    "cost-modeling"
+  ],
+  "lastModified": "2026-05-14"
+}

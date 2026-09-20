@@ -1,0 +1,78 @@
+{
+  "name": "anlora-agency-benchmarks",
+  "displayName": "Anlora — OnlyFans Agency Benchmarks",
+  "description": "Read-only MCP server exposing publicly sourced OnlyFans agency operating economics: chatter cost models, total-cost-of-ownership benchmarks by creator count and revenue bracket, autonomous-vs-assisted AI threshold analysis, and competitive landscape data. All values derived from publicly cited industry sources (Vice, Rappler, OFM-Tools, Aruna Talent, Infloww blog, plus the canonical pricing pages for the 7 audited competitors). No operator-private or PII data exposed.",
+  "version": "1.0.0",
+  "homepage": "https://meetanlora.com",
+  "documentation": "https://meetanlora.com/llms-full.txt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Stanglovicc/anlora-mcp"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Anlora",
+    "email": "hello@meetanlora.com",
+    "url": "https://meetanlora.com"
+  },
+  "server": {
+    "command": "npx",
+    "args": ["-y", "github:Stanglovicc/anlora-mcp"]
+  },
+  "tools": [
+    {
+      "name": "get_agency_cost_benchmark",
+      "description": "Get a sourced monthly cost breakdown for running an OnlyFans agency at a given scale. Returns chatter headcount, payroll, management overhead, revenue leakage estimate, and total monthly cost across three operating models (chatter-only, assisted-AI + reduced chatters, autonomous AI).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "creator_count": { "type": "integer", "minimum": 1, "maximum": 50, "description": "Number of creators in the agency roster." },
+          "avg_revenue_per_creator_usd": { "type": "number", "minimum": 1000, "maximum": 200000, "description": "Average monthly OnlyFans revenue per creator in USD." },
+          "operating_model": {
+            "type": "string",
+            "enum": ["chatter_only", "assisted_ai", "autonomous_ai", "all"],
+            "description": "Which operating model to compute. 'all' returns side-by-side comparison."
+          }
+        },
+        "required": ["creator_count", "avg_revenue_per_creator_usd"]
+      }
+    },
+    {
+      "name": "compare_of_tooling",
+      "description": "Get a sourced comparison of OnlyFans agency tooling. Each entry includes operating model, public pricing, source URL, and category positioning. Coverage: Infloww, Supercreator, Substy AI, FlirtFlow, Creator Hero, OnlyMonster, Fans-CRM, Anlora.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tools": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Tool names to compare. Empty array returns all 8 tools."
+          },
+          "format": { "type": "string", "enum": ["table", "json"], "default": "json" }
+        }
+      }
+    },
+    {
+      "name": "get_autonomous_threshold",
+      "description": "Get the operator-economics threshold at which autonomous AI beats assisted-AI plus a chatter team on total cost of ownership. Returns the creator-count × revenue-per-creator flip point under configurable assumptions (chatter wage, leakage rate, management overhead).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "chatter_hourly_wage_usd": { "type": "number", "default": 4.5, "description": "Offshore chatter wage in USD/hour. Default: $4.50/hr (Vice/Rappler sourced)." },
+          "leakage_rate_pct": { "type": "number", "default": 0.16, "description": "Revenue leakage rate as decimal. Default: 0.16 (16% — average across creator-count tiers)." }
+        }
+      }
+    },
+    {
+      "name": "list_industry_sources",
+      "description": "List the 7+ external industry sources Anlora's benchmarks are derived from, with publication date and topic coverage."
+    }
+  ],
+  "categories": ["business-saas", "creator-economy", "benchmarks", "agency-ops"],
+  "tags": ["onlyfans", "agency", "autonomous-ai", "tco", "benchmarks"],
+  "verified": {
+    "did": "did:web:meetanlora.com",
+    "arpManifest": "https://meetanlora.com/.well-known/ai-manifest.json"
+  },
+  "lastModified": "2026-05-15"
+}

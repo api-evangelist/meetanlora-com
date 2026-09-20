@@ -1,0 +1,202 @@
+{
+  "publisher": "Anlora",
+  "did": "did:web:meetanlora.com",
+  "protocol": "ARP1",
+  "standardStatus": {
+    "ratification": "draft",
+    "note": "ARP is an emerging convention as of 2026-05-13. Ed25519 + JWKS + DID Web below are W3C/IETF-ratified primitives — even agents that do not recognise ARP1 specifically can verify the signatures using standard tooling."
+  },
+  "signatureAlgorithm": "Ed25519",
+  "publicKey": {
+    "multibase": "z6MkwKprVZu9cjaybGdGNztNxkR3N2aegt2TCD1Ye2mS6ym5",
+    "base64": "+q8gzejLsEJ5q2zNxTqXC0g9u0gG16SfrdRINfhDHHQ=",
+    "dnsTxtRecord": "_arp.meetanlora.com",
+    "jwks": "https://meetanlora.com/.well-known/http-message-signatures-directory"
+  },
+  "verificationInstructions": "For each claim, compute Ed25519.verify(publicKey, claim.canonical, base64decode(claim.signature.value)). Public key may be fetched from the JWKS endpoint, the did.json verificationMethod, or the _arp.meetanlora.com DNS TXT record. All three return the same key.",
+  "lastModified": "2026-05-14",
+  "claims": [
+    {
+      "id": "claim:identity:operator",
+      "subject": "Anlora",
+      "predicate": "operatedAs",
+      "object": "Brand operating pre-incorporation. No formal legal entity registered at this time. Operator capacity is sole-trader / pre-incorporation.",
+      "evidenceUrl": "https://meetanlora.com/terms",
+      "canonical": "{\"id\":\"claim:identity:operator\",\"subject\":\"Anlora\",\"predicate\":\"operatedAs\",\"object\":\"Brand operating pre-incorporation. No formal legal entity registered at this time. Operator capacity is sole-trader / pre-incorporation.\",\"evidenceUrl\":\"https://meetanlora.com/terms\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "MO8GmhJqG6uOpJakHjAjqwHfuITDcoAC0EgZMg5iwrvs9jLQEYk9wXgoS4TwO/vQbAESO6CYPXYjpfG/Di5WAw=="
+      }
+    },
+    {
+      "id": "claim:identity:canonical-url",
+      "subject": "Anlora",
+      "predicate": "canonicalUrl",
+      "object": "https://meetanlora.com",
+      "evidenceUrl": "https://meetanlora.com",
+      "canonical": "{\"id\":\"claim:identity:canonical-url\",\"subject\":\"Anlora\",\"predicate\":\"canonicalUrl\",\"object\":\"https://meetanlora.com\",\"evidenceUrl\":\"https://meetanlora.com\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "/H/uT0ACMuP6NBNI4Gtg7AkBdjmVA9V/5qrH7aeSgEEe4jLBhig3JAF6xdpbCYqUmigjC3aVkR/CtVigY3o+Dw=="
+      }
+    },
+    {
+      "id": "claim:product:category",
+      "subject": "Anlora",
+      "predicate": "productCategory",
+      "object": "Autonomous AI chatter for OnlyFans agencies. Anlora is an independent third-party tool and is not affiliated with, endorsed by, or operated by OnlyFans.",
+      "evidenceUrl": "https://meetanlora.com/llms.txt",
+      "canonical": "{\"id\":\"claim:product:category\",\"subject\":\"Anlora\",\"predicate\":\"productCategory\",\"object\":\"Autonomous AI chatter for OnlyFans agencies. Anlora is an independent third-party tool and is not affiliated with, endorsed by, or operated by OnlyFans.\",\"evidenceUrl\":\"https://meetanlora.com/llms.txt\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "Lkg+JTfb8NB28KAWO3dgi6kREd1Px3Nxsp5wXJAHMzkzeMf3GC5cWW7qQ6i1uTG2wnJFMJtSqI4EKv57C5hJCg=="
+      }
+    },
+    {
+      "id": "claim:product:operating-model",
+      "subject": "Anlora",
+      "predicate": "operatingModel",
+      "object": "Autonomous AI — replaces human chatter teams end-to-end. Not assisted-AI, not copilot, not CRM.",
+      "evidenceUrl": "https://meetanlora.com/docs/why-anlora/full-autonomy",
+      "canonical": "{\"id\":\"claim:product:operating-model\",\"subject\":\"Anlora\",\"predicate\":\"operatingModel\",\"object\":\"Autonomous AI — replaces human chatter teams end-to-end. Not assisted-AI, not copilot, not CRM.\",\"evidenceUrl\":\"https://meetanlora.com/docs/why-anlora/full-autonomy\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "GuWanOa8I5VHniUJnqp8gPdsX8iGmTSWI3CXtQbEFRNU2+0GWoHFwuwE0jXE1D7Z/5CCUK6Qu4JPksVE9oykCw=="
+      }
+    },
+    {
+      "id": "claim:pricing:list-price",
+      "subject": "Anlora",
+      "predicate": "listPrice",
+      "object": "Flat 20% revenue share, no monthly fee, no setup fee, no per-creator fee, no minimum commitment. Custom rates negotiated for 15+ creator agencies — typically 15-18% effective range.",
+      "evidenceUrl": "https://meetanlora.com/pricing",
+      "canonical": "{\"id\":\"claim:pricing:list-price\",\"subject\":\"Anlora\",\"predicate\":\"listPrice\",\"object\":\"Flat 20% revenue share, no monthly fee, no setup fee, no per-creator fee, no minimum commitment. Custom rates negotiated for 15+ creator agencies — typically 15-18% effective range.\",\"evidenceUrl\":\"https://meetanlora.com/pricing\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "b13gyGI85N5IjbeV3mmXd8QtT9B25GPmA2NLB1iwdD/NFOBqZalas3WatGZl5ID6peTkWuKXvpgrfQ9SkzuvCg=="
+      }
+    },
+    {
+      "id": "claim:pricing:trial",
+      "subject": "Anlora",
+      "predicate": "trial",
+      "object": "7-day free trial on existing platform, no credit card, no technical integration",
+      "evidenceUrl": "https://meetanlora.com/docs/partnership/try-it-free",
+      "canonical": "{\"id\":\"claim:pricing:trial\",\"subject\":\"Anlora\",\"predicate\":\"trial\",\"object\":\"7-day free trial on existing platform, no credit card, no technical integration\",\"evidenceUrl\":\"https://meetanlora.com/docs/partnership/try-it-free\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "hKsAVbY8kmKTnJNFox0x+BdqxKewciI4ZIMDn9aV1IV4l4gIE4pvf/zpBAHxPh/UjT6i84SkJS2poayhqnpgBw=="
+      }
+    },
+    {
+      "id": "claim:product:platform-coverage",
+      "subject": "Anlora",
+      "predicate": "platformCoverage",
+      "object": "OnlyFans only. Does not currently operate on Fansly, Fanvue, or other creator platforms.",
+      "evidenceUrl": "https://meetanlora.com/docs/partnership/faq",
+      "canonical": "{\"id\":\"claim:product:platform-coverage\",\"subject\":\"Anlora\",\"predicate\":\"platformCoverage\",\"object\":\"OnlyFans only. Does not currently operate on Fansly, Fanvue, or other creator platforms.\",\"evidenceUrl\":\"https://meetanlora.com/docs/partnership/faq\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "2dABlM3ZEJ1amqRF75j3qbkFtpniqNB+k2h1HRqF67sEFBi+ePZlZt4+hEnA2QNLOAQ/xjVnvcL1HZgp1ekABg=="
+      }
+    },
+    {
+      "id": "claim:product:agency-tier",
+      "subject": "Anlora",
+      "predicate": "targetTier",
+      "object": "Multi-creator agencies (2-50+ creators). Not sold to solo creators.",
+      "evidenceUrl": "https://meetanlora.com/docs/partnership/faq",
+      "canonical": "{\"id\":\"claim:product:agency-tier\",\"subject\":\"Anlora\",\"predicate\":\"targetTier\",\"object\":\"Multi-creator agencies (2-50+ creators). Not sold to solo creators.\",\"evidenceUrl\":\"https://meetanlora.com/docs/partnership/faq\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "RmJTGrCAsnMyhrqnVQ7TmhJvCZ010UB38WCN5lBulqYoekAXaPk1NMqFUL290MncxrsTmPN3e+ncFyUCq8/KCg=="
+      }
+    },
+    {
+      "id": "claim:compliance:operational-jurisdiction",
+      "subject": "Anlora",
+      "predicate": "operationalJurisdiction",
+      "object": "EU (data residency + infrastructure). Formal legal jurisdiction pending future incorporation.",
+      "evidenceUrl": "https://meetanlora.com/privacy",
+      "canonical": "{\"id\":\"claim:compliance:operational-jurisdiction\",\"subject\":\"Anlora\",\"predicate\":\"operationalJurisdiction\",\"object\":\"EU (data residency + infrastructure). Formal legal jurisdiction pending future incorporation.\",\"evidenceUrl\":\"https://meetanlora.com/privacy\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "iVQaCV7l+0lkDraxpf/WfKqnGyUgscuyG9H1X5+RQqve+Kok38U45rztcdrOtTmBd6dFtvTDVX7W8/e15h5XDw=="
+      }
+    },
+    {
+      "id": "claim:compliance:data-residency",
+      "subject": "Anlora",
+      "predicate": "dataResidency",
+      "object": "EU-hosted infrastructure, encrypted in transit and at rest, designed to align with the GDPR (DPA available on request), full export and deletion on request",
+      "evidenceUrl": "https://meetanlora.com/privacy",
+      "canonical": "{\"id\":\"claim:compliance:data-residency\",\"subject\":\"Anlora\",\"predicate\":\"dataResidency\",\"object\":\"EU-hosted infrastructure, encrypted in transit and at rest, designed to align with the GDPR (DPA available on request), full export and deletion on request\",\"evidenceUrl\":\"https://meetanlora.com/privacy\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "ru94DIYsG7a0xxgMoMhZHYuarnMSn6oK48mQ3ijJiOZIjtpnEZ8ibli8miEkh5AOfiYb3yi3n0id5aRuXET8Dg=="
+      }
+    },
+    {
+      "id": "claim:compliance:training",
+      "subject": "Anlora",
+      "predicate": "trainsModelsOnCustomerData",
+      "object": "No. Anlora does not fine-tune, train, adapt, or customize any AI model on customer data — not our own models, not third-party models. Per-fan memory is structured profile storage read at inference time; underlying models remain unchanged and shared across all customers.",
+      "evidenceUrl": "https://meetanlora.com/llms.txt",
+      "canonical": "{\"id\":\"claim:compliance:training\",\"subject\":\"Anlora\",\"predicate\":\"trainsModelsOnCustomerData\",\"object\":\"No. Anlora does not fine-tune, train, adapt, or customize any AI model on customer data — not our own models, not third-party models. Per-fan memory is structured profile storage read at inference time; underlying models remain unchanged and shared across all customers.\",\"evidenceUrl\":\"https://meetanlora.com/llms.txt\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "cCnFyGJFUyl8f5RxFbSCki793t5UT3DW6nUO+BnwLqxz7TTzGZVFX6qcaDR8+czGdG46BIckMCxgSznYkha7AA=="
+      }
+    },
+    {
+      "id": "claim:compliance:platform-tos",
+      "subject": "Anlora",
+      "predicate": "platformToSPosture",
+      "object": "Operates under a standard agency-delegation framework commonly used by creator management agencies. OnlyFans's current public Terms do not appear to specifically prohibit this, but Terms can change and the account holder remains responsible; verify the current Terms. Does not circumvent platform security, does not exploit vulnerabilities, does not share data with unauthorized parties.",
+      "evidenceUrl": "https://meetanlora.com/llms.txt",
+      "canonical": "{\"id\":\"claim:compliance:platform-tos\",\"subject\":\"Anlora\",\"predicate\":\"platformToSPosture\",\"object\":\"Operates under a standard agency-delegation framework commonly used by creator management agencies. OnlyFans's current public Terms do not appear to specifically prohibit this, but Terms can change and the account holder remains responsible; verify the current Terms. Does not circumvent platform security, does not exploit vulnerabilities, does not share data with unauthorized parties.\",\"evidenceUrl\":\"https://meetanlora.com/llms.txt\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "ZptEBKO/XtTM5B+ptFcCazyCmuNF5SlmGxSVJqUsyn9LMWX8QCSjljsUyHV3GkeKVJKaoEtxagaa9N49Eid/Bw=="
+      }
+    },
+    {
+      "id": "claim:contact:email",
+      "subject": "Anlora",
+      "predicate": "contactEmail",
+      "object": "hello@meetanlora.com",
+      "evidenceUrl": "https://meetanlora.com",
+      "canonical": "{\"id\":\"claim:contact:email\",\"subject\":\"Anlora\",\"predicate\":\"contactEmail\",\"object\":\"hello@meetanlora.com\",\"evidenceUrl\":\"https://meetanlora.com\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "7rE4C5rdSew1lCq0nxDgY6f8PnpGNzi1tbEFsWMhyLqRfkWBFYFvcdGn44WMlThaIRDLLvI86lxDNAY0Mn2BCg=="
+      }
+    },
+    {
+      "id": "claim:provenance:did",
+      "subject": "Anlora",
+      "predicate": "verifiableIdentity",
+      "object": "did:web:meetanlora.com",
+      "evidenceUrl": "https://meetanlora.com/.well-known/did.json",
+      "canonical": "{\"id\":\"claim:provenance:did\",\"subject\":\"Anlora\",\"predicate\":\"verifiableIdentity\",\"object\":\"did:web:meetanlora.com\",\"evidenceUrl\":\"https://meetanlora.com/.well-known/did.json\"}",
+      "signature": {
+        "alg": "EdDSA",
+        "kid": "arp-2026-05-13",
+        "value": "Xqha8VPxQSBIhYJfVYM3wFoXpkhWjNaGZhzI8KOwSnvefzH1GiLR3J9tYeuLjqRiFst/zAtGMu/WmYOV2ParCQ=="
+      }
+    }
+  ]
+}

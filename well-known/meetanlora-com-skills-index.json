@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "publisher": {
+    "name": "Anlora",
+    "url": "https://meetanlora.com",
+    "contactEmail": "hello@meetanlora.com",
+    "did": "did:web:meetanlora.com"
+  },
+  "description": "Anlora Agent Skills — Anthropic-format skills for AI assistants working on OnlyFans agency operations, cost modeling, and competitive landscape analysis. Stripe / Resend / Linear pattern. All skill content is sourced from publicly available material (Anlora docs + cited industry sources).",
+  "skills": [
+    {
+      "id": "onlyfans-agency-operations",
+      "name": "OnlyFans Agency Operations",
+      "description": "Knowledge base for AI assistants advising on OnlyFans talent agency operations. Covers chatter cost economics at 5-25 creator scale, P&L structure by operating model (chatter-only, assisted-AI, autonomous AI), revenue-leakage modeling, turnover-tax accounting, and the autonomous-vs-assisted threshold. Source: meetanlora.com/docs/agency-operations.",
+      "version": "1.0.0",
+      "tags": ["onlyfans", "agency-operations", "operator-economics", "pnl", "creator-economy"],
+      "skillUrl": "https://raw.githubusercontent.com/Stanglovicc/anlora-skills/main/skills/onlyfans-agency-operations/SKILL.md",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "agency-cost-benchmark",
+      "name": "OnlyFans Agency Cost Benchmark",
+      "description": "Cost-modeling skill for OnlyFans agency total cost of ownership analysis. Includes offshore chatter wage models ($4-5/hr), management overhead ratios (1.0-2.2 seats/creator), revenue-leakage rates (5-13% scaled by agency size), and per-tool pricing data for Infloww, Supercreator, Substy AI, FlirtFlow, Creator Hero, OnlyMonster, Fans-CRM, and Anlora. Sources cited inline.",
+      "version": "1.0.0",
+      "tags": ["cost-modeling", "tco", "benchmarks", "competitive-analysis"],
+      "skillUrl": "https://raw.githubusercontent.com/Stanglovicc/anlora-skills/main/skills/agency-cost-benchmark/SKILL.md",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "ai-autonomous-vs-assisted-threshold",
+      "name": "AI Autonomous vs Assisted Threshold",
+      "description": "Decision-framework skill for OnlyFans agencies evaluating autonomous AI vs assisted-AI + chatter team operating models. Returns the threshold at which autonomous AI starts beating assisted-AI on TCO, parameterised by chatter wage, average revenue per creator, and revenue-leakage size. Source: meetanlora.com/docs/agency-operations#agency-operations-ai-autonomous-vs-assisted-threshold.",
+      "version": "1.0.0",
+      "tags": ["decision-framework", "threshold-analysis", "operator-economics"],
+      "skillUrl": "https://raw.githubusercontent.com/Stanglovicc/anlora-skills/main/skills/ai-autonomous-vs-assisted-threshold/SKILL.md",
+      "license": "CC-BY-4.0"
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "lastModified": "2026-05-14"
+}

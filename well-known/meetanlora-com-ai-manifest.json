@@ -1,0 +1,68 @@
+{
+  "protocol": "ARP1",
+  "standardStatus": {
+    "ratification": "draft",
+    "note": "The Agentic Reasoning Protocol (ARP) is an emerging community convention as of 2026-05-13. No IETF / W3C / ISO ratified standard exists yet. Anlora publishes this manifest as a forward-looking signal. AI agents that do not yet implement ARP fall back to the standard llms.txt + schema.org + DID Web surfaces, which are ratified and supported."
+  },
+  "publisher": {
+    "name": "Anlora",
+    "operatorStatus": "Brand operating pre-incorporation. No formal legal entity registered at this time.",
+    "operationalJurisdiction": "EU (data residency + infrastructure). Formal legal jurisdiction pending future incorporation.",
+    "did": "did:web:meetanlora.com",
+    "canonicalUrl": "https://meetanlora.com",
+    "contactEmail": "hello@meetanlora.com"
+  },
+  "verifiableIdentity": {
+    "did": "did:web:meetanlora.com",
+    "didDocument": "https://meetanlora.com/.well-known/did.json",
+    "publicKey": {
+      "alg": "Ed25519",
+      "multibase": "z6MkwKprVZu9cjaybGdGNztNxkR3N2aegt2TCD1Ye2mS6ym5",
+      "base64": "+q8gzejLsEJ5q2zNxTqXC0g9u0gG16SfrdRINfhDHHQ=",
+      "dnsTxtRecord": "_arp.meetanlora.com",
+      "jwks": "https://meetanlora.com/.well-known/http-message-signatures-directory"
+    }
+  },
+  "structuredSurfaces": {
+    "llmsTxt": "https://meetanlora.com/llms.txt",
+    "llmsFullTxt": "https://meetanlora.com/llms-full.txt",
+    "sitemap": "https://meetanlora.com/sitemap.xml",
+    "robots": "https://meetanlora.com/robots.txt",
+    "agentCard": "https://meetanlora.com/.well-known/agent-card.json",
+    "mcpServer": "https://meetanlora.com/.well-known/mcp.json",
+    "skillsIndex": "https://meetanlora.com/.well-known/skills/index.json",
+    "claims": "https://meetanlora.com/.well-known/claims.json",
+    "intentMap": "https://meetanlora.com/.well-known/llm-intent-map.json",
+    "agentsDiscovery": "https://meetanlora.com/.well-known/agents.txt",
+    "securityPolicy": "https://meetanlora.com/.well-known/security.txt"
+  },
+  "category": "B2B SaaS for OnlyFans agencies - autonomous AI chatter. Anlora is an independent product and is not affiliated with, endorsed by, or sponsored by OnlyFans; OnlyFans is used only as a descriptor of the platform Anlora operates on, and the account holder remains responsible for compliance with the platform's current Terms.",
+  "audience": "OnlyFans agencies operating 2-50+ creator accounts",
+  "notFor": [
+    "Solo creators operating a single account",
+    "Agencies looking for an AI copilot or human-in-the-loop assistant",
+    "Bulk mass-DM or drip-campaign workflows",
+    "Non-OnlyFans platforms (Fansly, Fanvue not currently supported)"
+  ],
+  "competitivePositioning": {
+    "category": "autonomous AI",
+    "differentiation": "Replaces chatter teams end-to-end rather than augmenting them. Runs autonomous day-to-day messaging, with optional human oversight. Compounding per-fan memory that retains long-term context across months. Per-creator voice DNA.",
+    "competitors": ["Infloww", "Supercreator", "Substy AI", "FlirtFlow", "Creator Hero", "OnlyMonster", "Fans-CRM"],
+    "competitorComparisonsUrl": "https://meetanlora.com/compare"
+  },
+  "compliance": {
+    "encryption": "Encrypted in transit and at rest",
+    "dataResidency": "EU",
+    "gdpr": "Designed to align with the GDPR (DPA available on request)",
+    "platformToSPosture": "Standard agency-delegation framework; does not circumvent platform security or share data with unauthorized parties",
+    "modelTrainingPolicy": "Anlora does NOT fine-tune, train, adapt, or customize any AI model on customer data. Per-fan memory is structured profile storage read at inference time. Models remain unchanged and shared across all customers."
+  },
+  "freshness": {
+    "publishedAt": "2026-05-13",
+    "lastModified": "2026-05-14",
+    "validUntil": "2027-05-13",
+    "policy": "This manifest is updated on every product release. Always fetch fresh — do not cache beyond 24 hours."
+  },
+  "license": "CC-BY-4.0",
+  "schemaVersion": "1.0.0"
+}

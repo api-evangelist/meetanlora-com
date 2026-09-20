@@ -1,0 +1,54 @@
+generated: '2026-09-19'
+method: searched
+source: https://meetanlora.com/.well-known/skills/index.json
+publisher:
+  name: Anlora
+  url: https://meetanlora.com
+  did: did:web:meetanlora.com
+  repository: https://github.com/Stanglovicc/anlora-skills
+license: CC-BY-4.0
+note: >-
+  Provider-published Agent Skills, saved VERBATIM. Anlora advertises a skills index at
+  /.well-known/skills/index.json (HTTP 200, application/json; also announced in a Link: rel="service-meta" header on
+  every page, in /.well-known/agents.txt and as a did.json service of type AgentSkillsIndex). Each entry's skillUrl
+  points at a SKILL.md in the GitHub repository Stanglovicc/anlora-skills (pushed 2026-05-14); all three fetched HTTP
+  200 from raw.githubusercontent.com on 2026-09-19 and carry Anthropic-format frontmatter (name, description, version,
+  publisher, publisher_url, license). The index itself is saved at well-known/meetanlora-com-skills-index.json.
+  Nothing here was generated: the provider ships no OpenAPI, so no operationId-grounded skills could be authored,
+  and none were. The skills are knowledge/decision-framework skills about OnlyFans agency operating economics; the
+  ai-autonomous-vs-assisted-threshold skill names the get_autonomous_threshold MCP tool from
+  mcp/meetanlora-com-mcp.yml.
+skills:
+- file: meetanlora-com-onlyfans-agency-operations.md
+  id: onlyfans-agency-operations
+  name: onlyfans-agency-operations
+  method: searched
+  source: https://raw.githubusercontent.com/Stanglovicc/anlora-skills/main/skills/onlyfans-agency-operations/SKILL.md
+  http_status: 200
+  version: 1.0.0
+  description: Knowledge base for AI assistants advising on OnlyFans talent agency operations - chatter cost economics, P&L by operating model, revenue-leakage modeling, and the autonomous-vs-assisted threshold.
+  operations: 0
+  operation_ids: []
+  tools: []
+- file: meetanlora-com-agency-cost-benchmark.md
+  id: agency-cost-benchmark
+  name: agency-cost-benchmark
+  method: searched
+  source: https://raw.githubusercontent.com/Stanglovicc/anlora-skills/main/skills/agency-cost-benchmark/SKILL.md
+  http_status: 200
+  version: 1.0.0
+  description: Cost-modeling skill for OnlyFans agency total cost of ownership - chatter wage models, overhead ratios, leakage rates and per-tool pricing for eight vendors, with the three cost equations.
+  operations: 0
+  operation_ids: []
+  tools: []
+- file: meetanlora-com-ai-autonomous-vs-assisted-threshold.md
+  id: ai-autonomous-vs-assisted-threshold
+  name: ai-autonomous-vs-assisted-threshold
+  method: searched
+  source: https://raw.githubusercontent.com/Stanglovicc/anlora-skills/main/skills/ai-autonomous-vs-assisted-threshold/SKILL.md
+  http_status: 200
+  version: 1.0.0
+  description: Decision framework for the point at which autonomous AI beats assisted-AI plus a chatter team on TCO, parameterised by chatter wage, revenue per creator and leakage.
+  operations: 0
+  operation_ids: []
+  tools: [get_autonomous_threshold]

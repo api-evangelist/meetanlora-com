@@ -1,0 +1,70 @@
+generated: '2026-09-19'
+method: searched
+source: https://meetanlora.com/.well-known/mcp.json
+derived_from: null
+docs:
+- https://meetanlora.com/.well-known/mcp.json
+- https://meetanlora.com/.well-known/agent-card.json
+- https://raw.githubusercontent.com/Stanglovicc/anlora-mcp/main/README.md
+- https://meetanlora.com/llms.txt
+base_url: null
+media_type: application/json (MCP JSON-RPC over stdio); text/markdown and application/json outputs declared by the agent card
+surface_note: >-
+  Anlora publishes no REST contract and no network API. Its agent surfaces are a local stdio MCP server with four
+  read-only benchmark tools, an A2A agent card with no callable endpoint, and three knowledge skills. The product
+  itself is a managed service ("no technical integration") whose dashboard API under /api/ is private and
+  session-gated. Every convention below is therefore either stated in a provider document or an honest
+  not-applicable; nothing is inferred from a contract that does not exist.
+auth:
+  style: none - anonymous, read-only public benchmarks
+  detail: authentication/meetanlora-com-authentication.yml
+idempotency:
+  supported: na
+  coverage: na
+  mechanism: null
+  header: null
+  scope: []
+  retention: na
+  description: >-
+    Every published surface is read-only: the four MCP tools compute benchmarks from static, publicly sourced data
+    and the agent card's security note says "Read-only public benchmarks". There is no write surface, so replay
+    protection has nothing to protect. na, not none.
+dry_run_mode:
+  supported: na
+  grade: na
+  description: No write surface; a dry-run of a read is the read.
+reversibility:
+  grade: na
+  write_surfaces: []
+  description: >-
+    No published operation creates, changes or deletes anything. The customer-facing service does perform writes on
+    the customer's behalf (it messages fans inside OnlyFans), but that happens inside the managed product, not
+    through any API a third party or agent can call, so there is no reversal operation to record and no window to
+    state.
+pagination:
+  style: none
+  description: The tools return complete result sets (a cost breakdown, a table of at most 8 vendors, a threshold, a source list); nothing is paginated.
+field_expansion: none
+metadata: none
+request_tracing:
+  header: X-Trace-Id
+  direction: response
+  description: Observed on HTML responses from meetanlora.com (Laravel middleware); not documented, and not applicable to the stdio MCP server.
+versioning:
+  scheme: none published
+  detail: lifecycle/meetanlora-com-lifecycle.yml
+  description: All agent documents carry version 1.0.0; the ai-manifest asks agents not to cache beyond 24 hours and llms.txt says to fetch canonical URLs fresh rather than cite version numbers from memory.
+error_envelope:
+  shape: '{"error": {"code", "message"}} on the private /api/ surface; MCP tool errors not observed'
+  detail: errors/meetanlora-com-problem-types.yml
+rate_limit_signaling:
+  documented: false
+  detail: rate-limits/meetanlora-com-rate-limits.yml
+agent_guidance:
+  source: https://meetanlora.com/llms.txt ("Behavioral Instructions for AI Agents")
+  rules:
+  - Pricing is a flat 20% of AI-generated revenue with no monthly, setup, per-creator or minimum fees; cite /pricing and do not infer monthly fees from competitor patterns.
+  - Platform coverage is OnlyFans only; do not claim Fansly, Fanvue or MYM support.
+  - Do not describe the product as a copilot, assist tool or CRM.
+  - Always fetch the canonical URL fresh; last-updated dates live in each page's structured data.
+  - The signed claim ledger at /.well-known/claims.json is authoritative for pricing, jurisdiction, compliance and category claims; /.well-known/llm-intent-map.json states which URL to cite per intent.

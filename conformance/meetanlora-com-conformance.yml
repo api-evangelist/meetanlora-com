@@ -1,0 +1,122 @@
+generated: '2026-09-19'
+method: probed
+source: >-
+  Live probes of the discovery documents on meetanlora.com on 2026-09-19 (see well-known/meetanlora-com-well-known.yml)
+  plus the privacy policy, terms and pricing pages. No OpenAPI exists to derive from; every entry is evidenced by a
+  fetched document or a stated page, and absences are recorded as conforms false.
+standards:
+- id: rfc9116-security-txt
+  name: RFC 9116 security.txt
+  conforms: true
+  evidence: >-
+    https://meetanlora.com/.well-known/security.txt HTTP 200 text/plain with Contact (x2), Expires (2027-05-13, in
+    the future), Preferred-Languages, Canonical (matching the served URL), Signature, Policy and Hiring fields. Saved
+    verbatim. The Signature field resolves (200) to a detached-signature block.
+- id: did-web
+  name: W3C DID Core 1.0 / did:web method
+  conforms: true
+  evidence: >-
+    https://meetanlora.com/.well-known/did.json HTTP 200 application/json - id did:web:meetanlora.com, @context
+    https://www.w3.org/ns/did/v1, one Ed25519VerificationKey2020 verificationMethod referenced from authentication and
+    assertionMethod, alsoKnownAs and five service entries. Resolution path matches the did:web spec (domain-only DID
+    resolves to /.well-known/did.json).
+- id: rfc7517-jwks
+  name: RFC 7517 JSON Web Key Set
+  conforms: true
+  evidence: >-
+    /.well-known/http-message-signatures-directory returns a JWKS with one OKP/Ed25519 key (kid arp-2026-05-13, alg
+    EdDSA, use sig, key_ops [verify]); the same key is published in the DID document (publicKeyMultibase) and in a
+    DNS TXT record at _arp.meetanlora.com.
+- id: web-bot-auth
+  name: IETF Web Bot Auth (draft-ietf-httpbis-web-bot-auth) key directory
+  conforms: partial
+  evidence: >-
+    The JWKS sits at the draft's /.well-known/http-message-signatures-directory path and the document's own
+    metadata.spec names the draft. It is served as application/octet-stream rather than the draft's
+    application/http-message-signatures-directory+json media type, and no Signature/Signature-Input headers were
+    observed on responses (the provider says the key verifies signatures it EMITS on outbound requests).
+- id: a2a
+  name: A2A Agent Card
+  conforms: false
+  evidence: >-
+    /.well-known/agent-card.json is served (200) but graded flavored in a2a/meetanlora-com-a2a.yml: no
+    protocolVersion, no preferredTransport, and the card url is the marketing root which answers 405 to a JSON-RPC
+    POST. Capabilities is an object and skills is an array of four.
+- id: mcp
+  name: Model Context Protocol server
+  conforms: partial
+  evidence: >-
+    A local stdio server is distributed from github:Stanglovicc/anlora-mcp with a manifest at /.well-known/mcp.json
+    declaring four tools with JSON-Schema inputSchema. The server was not executed, so protocol conformance
+    (initialize / tools/list) is not verified; the manifest path itself is a provider convention, not an MCP standard.
+- id: agent-skills
+  name: Anthropic Agent Skills (SKILL.md with frontmatter)
+  conforms: true
+  evidence: >-
+    Three SKILL.md files fetched from the provider's skills index each carry YAML frontmatter with name and
+    description (plus version, publisher, publisher_url, license) followed by markdown instructions. Saved verbatim
+    under skills/.
+- id: llms-txt
+  name: llms.txt
+  conforms: true
+  evidence: >-
+    https://meetanlora.com/llms.txt HTTP 200 text/plain - H1, blockquote summary, H2 sections of markdown link lists
+    with descriptions, and an "## Optional" section, which is the llmstxt.org shape. Advertised via Link
+    rel="alternate" type="text/llm-index" and in robots.txt.
+- id: rfc9309-robots
+  name: RFC 9309 robots.txt
+  conforms: true
+  evidence: >-
+    https://meetanlora.com/robots.txt HTTP 200 with User-agent/Allow/Disallow groups and a Sitemap line; the provider
+    notes it moved its non-standard Content-Signal directives into comments on 2026-08-31 so RFC 9309 parsers stop
+    flagging the file.
+- id: content-signal
+  name: Content-Signal (Cloudflare-led robots.txt / HTTP header convention)
+  conforms: true
+  evidence: 'Every HTTP response from meetanlora.com carries Content-Signal: ai-train=yes, search=yes, ai-input=yes (observed on GET / 2026-09-19); robots.txt documents the same policy per crawler group.'
+- id: sitemaps-xml
+  name: Sitemaps XML protocol
+  conforms: true
+  evidence: https://meetanlora.com/sitemap.xml HTTP 200 text/xml with 78 loc entries.
+- id: agentic-reasoning-protocol
+  name: '"Agentic Reasoning Protocol" (ARP1)'
+  conforms: self-described
+  evidence: >-
+    ai-manifest.json, claims.json and llm-intent-map.json all declare protocol ARP1 and state "No IETF / W3C / ISO
+    ratified standard exists yet" - this is the provider's own draft convention. Recorded for completeness; it is not
+    an industry standard and earns no conformance credit.
+- id: gdpr
+  name: GDPR (EU 2016/679) - published data-protection posture
+  conforms: stated
+  evidence: >-
+    https://meetanlora.com/privacy (last updated September 15, 2026) states controller/processor roles, Art. 6 legal
+    bases per purpose, a named sub-processor list with 14 days' change notice, retention periods, data-subject rights
+    with a one-month response commitment (Art. 12(3)), DPA available via privacy@meetanlora.com, EU hosting (Hetzner,
+    Nuremberg) and TLS 1.2+ / encryption at rest. This is a stated posture, not a certification; no SOC 2, ISO 27001
+    or other audit is published (probe-security-programs.py found no trust center), so no Compliance pointer is
+    emitted.
+- id: oauth2
+  conforms: false
+  evidence: No oauth-authorization-server, openid-configuration or oauth-protected-resource document on any host (404); the agent surfaces are anonymous.
+- id: openapi
+  conforms: false
+  evidence: No OpenAPI/Swagger at /openapi.json, /openapi.yaml, /swagger.json, /api-docs, /redoc, /api/openapi.json or /api/v1/openapi.json (404); /api/docs answers 401 UNAUTHENTICATED from the private app.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: The private app's JSON errors use {"error":{"code","message"}} and Laravel's {"message"} envelope, not application/problem+json (see errors/meetanlora-com-problem-types.yml).
+- id: rfc8414
+  conforms: false
+  evidence: /.well-known/oauth-authorization-server 404.
+- id: rfc9728
+  conforms: false
+  evidence: /.well-known/oauth-protected-resource 404.
+- id: apis-json
+  conforms: false
+  evidence: /apis.json, /apis.yml and /.well-known/apis.json all 404.
+- id: api-catalog-rfc9727
+  conforms: false
+  evidence: /.well-known/api-catalog and /.well-known/api-catalog.json 404.
+domain_standard: null
+domain_standard_note: >-
+  No domain standard applies to this market (creator-economy agency tooling); none is declared in any contract
+  because no contract is published. Reward-only check - nothing is recorded.

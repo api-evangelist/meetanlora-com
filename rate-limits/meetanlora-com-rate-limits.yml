@@ -1,0 +1,27 @@
+generated: '2026-09-19'
+method: searched
+source: https://github.com/Stanglovicc/anlora-mcp
+docs: https://meetanlora.com/llms.txt
+limit_count: 0
+summary: >-
+  No rate limit is published anywhere: not in the MCP manifest, the repository README, the agent card, llms.txt,
+  llms-full.txt, the pricing page or the terms. The only network surface a third party can hit is the set of static
+  discovery documents on meetanlora.com behind Cloudflare (whose WAF/bot policy is the provider's edge, not a
+  documented API limit); the MCP server runs locally over stdio, where a limit would be meaningless, and the A2A card
+  has no endpoint. No 429 was observed. limit_count is 0 because there is nothing an agent can plan against.
+rate_limits: []
+signaling:
+  scope: null
+  exhaustion_status: null
+  response_headers:
+  - name: Retry-After
+    documented: false
+  - name: X-RateLimit-Limit
+    documented: false
+  - name: X-RateLimit-Remaining
+    documented: false
+  - name: RateLimit
+    documented: false
+  client_guidance: The ai-manifest asks agents not to cache its documents beyond 24 hours; no request-rate guidance exists.
+domains:
+- meetanlora.com

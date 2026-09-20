@@ -1,17 +1,40 @@
 aid: meetanlora-com
 name: Anlora
-description: 'Anlora is a company surfaced via the API Evangelist harvest backlog (source: a2a-registry)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Anlora (meetanlora.com) sells an autonomous AI chatter for OnlyFans talent agencies: a managed service that
+  runs day-to-day fan messaging on an agency's existing management platform, with optional human oversight,
+  priced as a flat 20% revenue share on AI-generated payouts with a 7-day card-free trial and no technical
+  integration. It publishes no REST API, SDK or developer program - its customer dashboard API under /api/ is
+  private and session-gated - but it does publish an unusually complete agent-discovery surface on its apex
+  host: an A2A agent card at /.well-known/agent-card.json (four public-data benchmark skills; graded flavored -
+  no protocolVersion and the card url answers 405 to POST), an MCP manifest at /.well-known/mcp.json for a local
+  stdio server (npx -y github:Stanglovicc/anlora-mcp, four read-only OnlyFans-agency cost-benchmark tools, MIT),
+  an Agent Skills index with three CC-BY-4.0 SKILL.md files, an llms.txt, an RFC 9116 security.txt with a
+  detached signature, a did:web document, a Web Bot Auth key directory and a signed claims ledger. The company
+  describes itself as a brand operating pre-incorporation with EU (Hetzner, Nuremberg) hosting, a Better Stack
+  status page, and public pricing, terms and privacy pages.
 url: https://raw.githubusercontent.com/api-evangelist/meetanlora-com/refs/heads/main/apis.yml
+image: https://meetanlora.com/images/logo.png
 x-type: company
 x-source: harvest:a2a-registry
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-20 (local-v3; was a2a-registry harvest stub)
 specificationVersion: '0.20'
 created: '2026-09-19'
-modified: '2026-09-19'
+modified: '2026-09-20'
 tags:
-- Company
+- Creator Economy
+- OnlyFans
+- Agency Tooling
+- Autonomous AI
+- Conversational AI
+- SaaS
+- Benchmarks
+- Cost Modeling
+- Agents
+- MCP
+- A2A
+- Agent Skills
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -21,3 +44,84 @@ maintainers:
 common:
 - type: Website
   url: https://meetanlora.com/
+- type: Documentation
+  url: https://meetanlora.com/docs/overview
+- type: Pricing
+  url: https://meetanlora.com/pricing
+- type: SignUp
+  url: https://meetanlora.com/register
+- type: Login
+  url: https://meetanlora.com/login
+- type: TermsOfService
+  url: https://meetanlora.com/terms
+- type: PrivacyPolicy
+  url: https://meetanlora.com/privacy
+- type: Support
+  url: https://meetanlora.com/contact
+- type: Blog
+  url: https://meetanlora.com/blog
+- type: Leadership
+  url: https://meetanlora.com/docs/about
+- type: StatusPage
+  url: https://status.meetanlora.com/
+- type: GitHub
+  name: Provider repositories (Stanglovicc - the personal account the provider's own mcp.json and skills index name; there is no Anlora GitHub organization)
+  url: https://github.com/Stanglovicc
+- type: LLMsTxt
+  url: llms/meetanlora-com-llms.txt
+- type: LLMsTxt
+  name: llms.txt (provider-hosted)
+  url: https://meetanlora.com/llms.txt
+- type: AgentCard
+  url: a2a/meetanlora-com-a2a.yml
+- type: AgentCard
+  name: A2A Agent Card (provider-hosted; graded flavored)
+  url: https://meetanlora.com/.well-known/agent-card.json
+- type: MCPServer
+  url: mcp/meetanlora-com-mcp.yml
+- type: MCPServer
+  name: MCP manifest (provider-hosted; local stdio server, no remote endpoint)
+  url: https://meetanlora.com/.well-known/mcp.json
+- type: AgentSkill
+  url: skills/_index.yml
+- type: WellKnown
+  url: well-known/meetanlora-com-well-known.yml
+- type: SecurityTxt
+  url: well-known/meetanlora-com-security.txt
+- type: WebBotAuth
+  url: well-known/meetanlora-com-http-message-signatures-directory.json
+- type: Security
+  url: security/meetanlora-com-vulnerability-disclosure.yml
+- type: VulnerabilityDisclosure
+  url: security/meetanlora-com-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/meetanlora-com-domain-security.yml
+- type: Packages
+  url: packages/meetanlora-com-packages.yml
+- type: Conformance
+  url: conformance/meetanlora-com-conformance.yml
+- type: Lifecycle
+  url: lifecycle/meetanlora-com-lifecycle.yml
+- type: Authentication
+  url: authentication/meetanlora-com-authentication.yml
+- type: Conventions
+  url: conventions/meetanlora-com-conventions.yml
+- type: Plans
+  url: plans/meetanlora-com-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/meetanlora-com-rate-limits.yml
+- type: RegulatoryPosture
+  url: regulatory/meetanlora-com-regulatory-posture.yml
+- type: Subprocessors
+  url: https://meetanlora.com/privacy
+- type: DataSubjectRequest
+  url: https://meetanlora.com/privacy
+- type: DataResidency
+  url: https://meetanlora.com/privacy
+- type: ExitAssistance
+  url: https://meetanlora.com/terms
+x-enrichment:
+  date: '2026-09-20'
+  status: enriched
+  artifacts_added: 30
+  pass: local-v3

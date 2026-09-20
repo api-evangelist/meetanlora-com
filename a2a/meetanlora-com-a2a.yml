@@ -1,0 +1,132 @@
+generated: '2026-09-19'
+method: probed
+source: https://meetanlora.com/.well-known/agent-card.json
+card:
+  file: meetanlora-com-agent-card.json
+discovery:
+  path: /.well-known/agent-card.json
+  canonical: true
+  host: meetanlora.com
+  also_probed:
+  - {url: 'https://meetanlora.com/.well-known/agent.json', status: 404, note: the pre-0.3 legacy path is not served}
+  - {url: 'https://www.meetanlora.com/.well-known/agent-card.json', status: 301, note: www redirects to the apex}
+  - {url: 'https://status.meetanlora.com/.well-known/agent-card.json', status: 301, note: the Better Stack status host redirects every /.well-known/* path}
+  advertised_by:
+  - 'Link: </.well-known/agent-card.json>; rel="service-meta" on every HTML response from meetanlora.com'
+  - 'https://meetanlora.com/robots.txt ("Agent discovery: /.well-known/agents.txt + /.well-known/agent-card.json")'
+  - 'https://meetanlora.com/.well-known/agents.txt (agent-card: line)'
+  - 'https://meetanlora.com/.well-known/did.json (service id did:web:meetanlora.com#agent-card, type AgentCard)'
+  - 'https://meetanlora.com/.well-known/ai-manifest.json (structuredSurfaces.agentCard)'
+  - 'a2aregistry.org listing (fetched 2026-09-19) naming the same wellKnownURI - the harvest source for this repo'
+  note: >-
+    Served on the apex with content-type application/json, last-modified Sat, 27 Jun 2026 19:04:26 GMT and a weak
+    ETag. The card names Anlora as provider.organization with provider.url https://meetanlora.com and
+    contactEmail hello@meetanlora.com, the DID document on the same host lists it as a service endpoint, and the
+    a2aregistry.org record that surfaced this operator points at the same URL - ownership is not in question.
+    The body is identical across four User-Agents (browser, bare Mozilla/5.0, curl, ClaudeBot).
+x-evidence:
+  fetched: '2026-09-19'
+  url: https://meetanlora.com/.well-known/agent-card.json
+  http_status: 200
+  content_type: application/json
+  body_bytes: 5129
+  body_parses_as: JSON object with AgentCard shape (name, description, version, url, provider, capabilities, defaultInputModes, defaultOutputModes, skills present; protocolVersion and preferredTransport absent)
+  endpoint_probe:
+    url: https://meetanlora.com
+    method: POST message/send (JSON-RPC 2.0)
+    status: 405
+    content_type: application/json
+    body: '{"message": "The POST method is not supported for route /. Supported methods: GET, HEAD."}'
+    note: >-
+      The card's url is the website root. It is a Laravel/Inertia marketing site that accepts only GET and HEAD, so
+      there is no reachable A2A JSON-RPC endpoint behind the card. /a2a on the same host returns the site's HTML 404.
+      The four skills the card lists are the four tools of the provider's MCP server, which is a local stdio
+      package (see mcp/meetanlora-com-mcp.yml) - the card is a discovery-and-description document, not a callable
+      agent.
+  signature:
+    present: false
+    note: >-
+      The card carries no JWS signatures[] member. The provider does publish an Ed25519 key for its identity at
+      /.well-known/did.json and a JWKS at /.well-known/http-message-signatures-directory, and signs a separate
+      claim ledger at /.well-known/claims.json, but the agent card itself is unsigned.
+agent_card:
+  name: Anlora
+  url: https://meetanlora.com
+  version: 1.0.0
+  protocol_version: null
+  preferred_transport: null
+  documentation: https://meetanlora.com/llms-full.txt
+  provider:
+    organization: Anlora
+    url: https://meetanlora.com
+    contactEmail: hello@meetanlora.com
+    operatorStatus: Brand operating pre-incorporation. EU-based operational infrastructure.
+  security: 'anonymous - authentication.schemes ["none"]; security[] is a single {scheme: none} descriptor'
+  capabilities:
+    streaming: false
+    push_notifications: false
+    state_transition_history: false
+  default_input_modes: [text/plain]
+  default_output_modes: [application/json, text/markdown]
+  skill_count: 4
+  skills:
+  - id: get_agency_cost_benchmark
+    name: Get OnlyFans Agency Cost Benchmark
+    tags: [pricing, benchmarks, agency-ops, cost-modeling]
+  - id: compare_of_tooling
+    name: Compare OnlyFans Agency Tooling Landscape
+    tags: [competitors, comparison, saas, creator-economy]
+  - id: get_autonomous_threshold
+    name: Get AI-Autonomous vs AI-Assisted Threshold
+    tags: [threshold-analysis, tco, decision-framework]
+  - id: list_industry_sources
+    name: List Industry Sources
+    tags: [sources, citations, verification, transparency]
+  extra_members:
+    identityProof: {did: 'did:web:meetanlora.com', didDocument: 'https://meetanlora.com/.well-known/did.json', arpManifest: 'https://meetanlora.com/.well-known/ai-manifest.json'}
+    compliance: {jurisdiction: 'Pre-incorporation; EU operational base', dataResidency: EU, encryption: Encrypted in transit and at rest, gdpr: Designed to align with the GDPR (DPA available on request)}
+    tags: [onlyfans, creator-economy, agency-tooling, autonomous-ai, saas, b2b, benchmarks, cost-modeling]
+    lastModified: '2026-05-14'
+conformance:
+  spec: A2A 1.0.0
+  grade: flavored
+  protocol_version: null
+  preferred_transport: null
+  deviations:
+  - no-protocolVersion
+  - no-preferredTransport
+  - url-is-not-an-a2a-endpoint
+  - legacy-authentication-member
+  - security-not-requirement-objects
+  - documentation-instead-of-documentationUrl
+grade_basis: >-
+  Graded against the A2A 1.0.0 hard checks: capabilities is an OBJECT (pass), skills is an ARRAY of four (pass),
+  protocolVersion is ABSENT (fail) - one hard failure makes the card flavored. preferredTransport is also absent;
+  defaultInputModes and defaultOutputModes are declared. The skills entries themselves are well-formed
+  (id, name, description, tags, examples, inputModes, outputModes).
+deviations:
+- field: protocolVersion
+  observed: absent
+  note: A 1.0 client cannot tell which protocol revision the card targets; the hard check that separates flavored from conformant.
+- field: url
+  observed: https://meetanlora.com
+  note: >-
+    Points at the marketing site root, which answers 405 to POST. No JSON-RPC, gRPC or HTTP+JSON interface is
+    declared anywhere in the card (no preferredTransport, no additionalInterfaces / supportedInterfaces), so the
+    card describes skills that cannot be invoked over A2A.
+- field: authentication
+  observed: '{schemes: ["none"]}'
+  note: A pre-0.3 member; 1.0 expresses anonymous access with an empty security[] list and securitySchemes.
+- field: security
+  observed: '[{scheme: "none", description: "..."}]'
+  note: >-
+    Shaped as descriptors rather than the spec's security-requirement objects keyed by scheme name, and there is
+    no securitySchemes map for them to reference.
+- field: documentation
+  observed: https://meetanlora.com/llms-full.txt
+  note: The spec field is documentationUrl; the value points at the llms-full.txt corpus rather than agent documentation.
+- field: identityProof / compliance / tags / lastModified
+  observed: extra top-level members
+  note: >-
+    Provider-specific extensions carrying a did:web identity, an ARP manifest pointer and a GDPR/EU-residency
+    statement. Harmless to a lenient parser; not part of the AgentCard schema.

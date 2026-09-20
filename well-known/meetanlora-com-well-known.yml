@@ -1,0 +1,180 @@
+generated: '2026-09-19'
+method: probed
+source: >-
+  Live GET probes of the named /.well-known/* path list on meetanlora.com, www.meetanlora.com and
+  status.meetanlora.com on 2026-09-19, plus every additional discovery document the provider itself declares in
+  robots.txt, /.well-known/agents.txt, did.json and the Link: service-meta response headers. Every row is a request
+  that was actually issued; every status is the one returned. Bodies were confirmed identical across four
+  User-Agents (browser, bare Mozilla/5.0, curl, ClaudeBot).
+summary:
+  hosts_probed: 3
+  paths_probed: 40
+  documents_served: 12
+  note: >-
+    Everything lives on the apex. meetanlora.com serves an RFC 9116 security.txt with a detached signature, an A2A
+    agent card (graded flavored in a2a/), an MCP manifest for a local stdio server, an Agent Skills index, a W3C
+    did:web document, a JWKS at the Web Bot Auth http-message-signatures-directory path, an agents.txt pointer
+    index, and three self-described "Agentic Reasoning Protocol" (ARP, draft, non-standard) documents: an
+    ai-manifest, a signed claims ledger and an LLM intent map. It serves NO openid-configuration,
+    oauth-authorization-server, oauth-protected-resource, api-catalog, ai-plugin.json, apis.json, ucp.json, acp.json
+    or aauth-resource.json (all HTML 404). www.meetanlora.com 301s every path to the apex. status.meetanlora.com
+    (Better Stack) 301s every /.well-known/* path to its own root. api., docs., mcp. and app.meetanlora.com do not
+    resolve.
+  consent_signals:
+    content_signal_header: 'Content-Signal: ai-train=yes, search=yes, ai-input=yes on every HTTP response (observed on GET / 2026-09-19)'
+    robots_txt: https://meetanlora.com/robots.txt - explicit Allow for 24 named AI crawlers (GPTBot, ClaudeBot, anthropic-ai, Google-Extended, PerplexityBot ...) and Disallow /api/, /health, /up, /login, /auth/, /passkeys, /team/, /horizon for all agents
+    web_bot_auth: JWKS (Ed25519, kid arp-2026-05-13) at /.well-known/http-message-signatures-directory, self-described as "JWKS for IETF Web Bot Auth ... verifies HTTP message signatures Anlora emits on signed outbound requests"
+    dns: '_arp.meetanlora.com TXT "v=ARP1; alg=ed25519; pk=..." publishes the same public key'
+hosts:
+- host: meetanlora.com
+  role: Apex - marketing site, docs, login/register, and every discovery document the provider publishes
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    file: meetanlora-com-security.txt
+    standard: RFC 9116
+    note: 'Contact security@ and hello@; Expires 2027-05-13; Preferred-Languages en; Canonical; Signature -> security.txt.sig; Policy -> /privacy; Hiring -> /docs/about. Expires is in the future and the Canonical URL matches the served URL.'
+  - path: /.well-known/security.txt.sig
+    status: 200
+    content_type: application/octet-stream
+    file: meetanlora-com-security.txt.sig
+    note: PGP-armored block whose comments say "Ed25519 detached signature" keyed to did:web:meetanlora.com#arp-2026-05-13. Not verified in this pass.
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: application/json
+    file: ../a2a/meetanlora-com-agent-card.json
+    standard: A2A (graded flavored - no protocolVersion; url is the site root which answers 405 to POST)
+    note: Captured and graded in a2a/meetanlora-com-a2a.yml.
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/mcp.json
+    status: 200
+    content_type: application/json
+    file: meetanlora-com-mcp.json
+    standard: provider convention (no MCP well-known is standardised)
+    note: Manifest for the local stdio server anlora-agency-benchmarks (npx -y github:Stanglovicc/anlora-mcp) with four tools and their inputSchema. Profiled in mcp/meetanlora-com-mcp.yml.
+  - path: /.well-known/skills/index.json
+    status: 200
+    content_type: application/json
+    file: meetanlora-com-skills-index.json
+    standard: Agent Skills index (provider convention - "Stripe / Resend / Linear pattern")
+    note: Three CC-BY-4.0 skills with skillUrl on raw.githubusercontent.com/Stanglovicc/anlora-skills; all three fetched 200 and saved under skills/.
+  - path: /.well-known/did.json
+    status: 200
+    content_type: application/json
+    file: meetanlora-com-did.json
+    standard: W3C DID Core / did:web
+    note: did:web:meetanlora.com with one Ed25519VerificationKey2020 and five service endpoints (LinkedDomains, AgentCard, MCPServer, AgentSkillsIndex, AgenticReasoningProtocol).
+  - path: /.well-known/http-message-signatures-directory
+    status: 200
+    content_type: application/octet-stream
+    file: meetanlora-com-http-message-signatures-directory.json
+    standard: draft-ietf-httpbis-web-bot-auth (JWKS, RFC 7517)
+    note: One OKP/Ed25519 key, kid arp-2026-05-13, use sig. Served as application/octet-stream rather than application/http-message-signatures-directory+json; body parses as JSON.
+  - path: /.well-known/agents.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    file: meetanlora-com-agents.txt
+    standard: provider convention (plain-text pointer index)
+    note: One line per discovery surface; last-updated 2026-05-14.
+  - path: /.well-known/ai-manifest.json
+    status: 200
+    content_type: application/json
+    file: meetanlora-com-ai-manifest.json
+    standard: self-described "Agentic Reasoning Protocol" ARP1 (draft; the document itself says no ratified standard exists)
+    note: Publisher identity (pre-incorporation, EU operational base), structured-surface pointers, competitive positioning, compliance statements, freshness policy.
+  - path: /.well-known/claims.json
+    status: 200
+    content_type: application/json
+    file: meetanlora-com-claims.json
+    standard: self-described ARP1 signed claim ledger (Ed25519/EdDSA)
+    note: Signed subject-predicate-object claims about operator status, canonical URL, product category, operating model, pricing and compliance, each with an evidenceUrl. Signatures not verified in this pass.
+  - path: /.well-known/llm-intent-map.json
+    status: 200
+    content_type: application/json
+    file: meetanlora-com-llm-intent-map.json
+    standard: self-described ARP1
+    note: Source-precedence rules telling an agent which canonical URL to cite per intent (pricing, comparisons, compliance ...).
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/api-catalog.json
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/jwks.json
+    status: 404
+    note: The JWKS is at http-message-signatures-directory, not at the conventional jwks.json path.
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    file: ../llms/meetanlora-com-llms.txt
+    note: Also advertised via Link rel="alternate" type="text/llm-index".
+  - path: /llms-full.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    file: null
+    note: 116,720-byte flattened docs corpus; fetched for reference only and not committed (*-llms-full.txt is gitignored).
+  - path: /llms-recommendations.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    file: null
+    note: 14,645-byte "recommendation logic for AI engines" document; read, not saved.
+- host: www.meetanlora.com
+  role: Alias - 301 to the apex for every path
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+    note: Location https://meetanlora.com/.well-known/security.txt; the apex row above is the served document.
+  - path: /.well-known/agent-card.json
+    status: 301
+- host: status.meetanlora.com
+  role: Status page hosted on Better Stack (page title "Better Stack"; assets from betterstack.com)
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+  - path: /.well-known/openid-configuration
+    status: 301
+  - path: /.well-known/oauth-authorization-server
+    status: 301
+  - path: /.well-known/oauth-protected-resource
+    status: 301
+  - path: /.well-known/api-catalog
+    status: 301
+  - path: /.well-known/ai-plugin.json
+    status: 301
+  - path: /.well-known/agent-card.json
+    status: 301
+  - path: /.well-known/agent.json
+    status: 301
+  - path: /.well-known/apis.json
+    status: 301
+  - path: /apis.json
+    status: 301
+  - path: /robots.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    note: Zero-byte body.
+unresolved_hosts:
+- {host: api.meetanlora.com, result: no DNS resolution}
+- {host: docs.meetanlora.com, result: no DNS resolution}
+- {host: mcp.meetanlora.com, result: no DNS resolution}
+- {host: app.meetanlora.com, result: no DNS resolution}
