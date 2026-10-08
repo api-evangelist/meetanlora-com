@@ -71,3 +71,26 @@ note: >-
   All values copied from https://meetanlora.com/pricing (HTTP 200, 2026-09-19). The page also carries a cost
   calculator and competitor pricing comparisons "as publicly listed on each vendor's pricing page as of May 2026";
   those competitor figures are not recorded here.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  units: []
+  plans:
+  - name: Standard rate
+    access: other
+    model: unstated
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Enterprise (Custom)
+    access: other
+    model: negotiated
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
