@@ -64,5 +64,107 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Anlora is a company surfaced via the API Evangelist harvest backlog (source: a2a-registry) and added to the network as a stub for full-pipeline profiling.
-- https://meetanlora.com/
+Anlora (meetanlora.com) sells an autonomous AI chatter for OnlyFans talent agencies: a managed service that runs day-to-day fan messaging on an agency's existing management platform, with optional human oversight, priced as a flat 20% revenue share on AI-generated payouts with a 7-day card-free trial and no technical integration. It publishes no REST API, SDK or developer program - its customer dashboard API under /api/ is private and session-gated - but it does publish an unusually complete agent-discovery surface on its apex host: an A2A agent card at /.well-known/agent-card.json (four public-data benchmark skills; graded flavored - no protocolVersion and the card url answers 405 to POST), an MCP manifest at /.well-known/mcp.json for a local stdio server (npx -y github:Stanglovicc/anlora-mcp, four read-only OnlyFans-agency cost-benchmark tools, MIT), an Agent Skills index with three CC-BY-4.0 SKILL.md files, an llms.txt, an RFC 9116 security.txt with a detached signature, a did:web document, a Web Bot Auth key directory and a signed claims ledger. The company describes itself as a brand operating pre-incorporation with EU (Hetzner, Nuremberg) hosting, a Better Stack status page, and public pricing, terms and privacy pages.
+
+**Areas:** Creator Economy · OnlyFans · Agency Tooling · Autonomous AI · Conversational AI · Software-as-a-Service · Benchmarks · Cost Modeling · Agents · MCP · A2A · Agent Skills
+
+## Anlora on APIs.io
+
+Everything profiled for Anlora is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/meetanlora-com/](https://apis.io/providers/meetanlora-com/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [meetanlora-com-mcp.yml](https://apis.io/servers/meetanlora-com/meetanlora-com-mcp-yml/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Meetanlora Com Authentication](https://apis.io/security/meetanlora-com/meetanlora-com-authentication/)
+- [Meetanlora Com Domain Security](https://apis.io/security/meetanlora-com/meetanlora-com-domain-security/)
+- [Meetanlora Com Vulnerability Disclosure](https://apis.io/security/meetanlora-com/meetanlora-com-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Meetanlora Com Plans Pricing](https://apis.io/plans/meetanlora-com/meetanlora-com-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Meetanlora Com Rate Limits](https://apis.io/rate-limits/meetanlora-com/meetanlora-com-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://meetanlora.com/)
+- [Documentation](https://meetanlora.com/docs/overview)
+- [Pricing](https://meetanlora.com/pricing)
+- [Sign up](https://meetanlora.com/register)
+- [Support](https://meetanlora.com/contact)
+- [Blog](https://meetanlora.com/blog)
+- [Terms of service](https://meetanlora.com/terms)
+- [Privacy policy](https://meetanlora.com/privacy)
+- [Status](https://status.meetanlora.com/)
+
+## API Evangelist rating
+
+**Kin Score 36.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 56.7 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 31.6 |
+| Developer ergonomics | 35.7 |
+| Access clarity | 65.8 |
+
+**Agent readiness 15.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | yes |
+| Agent Card | flavored (partial credit) |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 46.1** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/meetanlora-com/](https://apis.io/providers/meetanlora-com/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Anlora: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/meetanlora-com/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
